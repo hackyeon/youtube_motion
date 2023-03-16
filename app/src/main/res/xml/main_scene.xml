@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start"
+        motion:duration="100"
+        >
+
+        <OnSwipe
+            app:touchRegionId="@id/audio"
+            motion:dragDirection="dragUp"
+            />
+
+    </Transition>
+
+
+
+    <ConstraintSet android:id="@id/start">
+        <Constraint
+            android:id="@id/bottom_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Constraint
+            android:id="@id/audio"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+            />
+
+        <!-- mini -->
+        <Constraint android:id="@id/tvMiniTitle"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintBottom_toTopOf="@id/tvMiniSubTitle"
+            app:layout_constraintStart_toEndOf="@id/card"
+            app:layout_constraintEnd_toStartOf="@id/btnMiniPlayOrPause"
+            >
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+        <Constraint android:id="@id/tvMiniSubTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvMiniTitle"
+            app:layout_constraintBottom_toBottomOf="@id/testView"
+            app:layout_constraintStart_toEndOf="@id/card"
+            app:layout_constraintEnd_toStartOf="@id/btnMiniPlayOrPause"
+            >
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+        <Constraint android:id="@id/btnMiniPlayOrPause"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toStartOf="@id/btnMiniList"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintBottom_toBottomOf="@id/testView"
+            >
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+        <Constraint android:id="@id/btnMiniList"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="@id/testView"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintBottom_toBottomOf="@id/testView"
+            >
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+        <!-- mini -->
+        <Constraint android:id="@id/ivNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/card"
+            app:layout_constraintBottom_toBottomOf="@id/card"
+            app:layout_constraintStart_toEndOf="@id/card"
+            android:layout_marginStart="20dp">
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <Constraint android:id="@id/ivPrev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="180"
+            app:layout_constraintTop_toTopOf="@id/card"
+            app:layout_constraintBottom_toBottomOf="@id/card"
+            app:layout_constraintEnd_toStartOf="@id/card"
+            android:layout_marginEnd="20dp"
+            >
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <Constraint android:id="@id/tvTitle">
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <Constraint android:id="@id/tvSubTitle">
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <Constraint
+            android:id="@+id/clAudioController"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+
+
+        <Constraint
+            android:id="@id/card"
+            app:layout_constraintStart_toStartOf="@id/testView"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            >
+            <CustomAttribute
+                app:attributeName="radius"
+                app:customDimension="50dp"
+                />
+        </Constraint>
+
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@id/end">
+        <Constraint
+            android:id="@id/bottom_nav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Constraint
+            android:id="@id/audio"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+            />
+
+        <!-- mini -->
+        <Constraint android:id="@id/tvMiniTitle"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintBottom_toBottomOf="@id/testView"
+            app:layout_constraintStart_toEndOf="@id/testView"
+            >
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <Constraint android:id="@id/tvMiniSubTitle"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintBottom_toBottomOf="@id/testView"
+            app:layout_constraintStart_toEndOf="@id/testView"
+            >
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <Constraint android:id="@id/btnMiniPlayOrPause"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintStart_toEndOf="@id/testView"
+            app:layout_constraintBottom_toBottomOf="@id/testView"
+            >
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <Constraint android:id="@id/btnMiniList"
+            app:layout_constraintStart_toEndOf="@id/testView"
+            app:layout_constraintTop_toTopOf="@id/testView"
+            app:layout_constraintBottom_toBottomOf="@id/testView"
+            >
+            <PropertySet
+                android:visibility="gone"/>
+        </Constraint>
+        <!-- mini -->
+
+
+
+
+        <Constraint android:id="@id/ivNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/card"
+            app:layout_constraintBottom_toBottomOf="@id/card"
+            app:layout_constraintStart_toEndOf="@id/card"
+            android:layout_marginStart="20dp"
+            >
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+        <Constraint android:id="@id/ivPrev"
+            android:layout_width="wrap_content"
+            android:rotation="180"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/card"
+            app:layout_constraintBottom_toBottomOf="@id/card"
+            app:layout_constraintEnd_toStartOf="@id/card"
+            android:layout_marginEnd="20dp"
+            >
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+
+        <Constraint android:id="@id/tvTitle">
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+        <Constraint android:id="@id/tvSubTitle">
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+        <Constraint
+            android:id="@+id/clAudioController"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            <PropertySet
+                android:visibility="visible"/>
+        </Constraint>
+
+
+        <Constraint
+            android:id="@id/card"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="@id/audio"
+            app:layout_constraintEnd_toEndOf="@id/audio"
+            app:layout_constraintTop_toBottomOf="@id/tvSubTitle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            >
+
+            <CustomAttribute
+                app:attributeName="radius"
+                app:customDimension="0dp"
+                />
+
+        </Constraint>
+
+    </ConstraintSet>
+</MotionScene>

@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_new_scene"
+    android:id="@+id/motionLayout"
+    >
+
+    <!-- audio screen 의 기본 위치를 잡기 위한 뷰 -->
+    <View
+        android:clickable="false"
+        android:id="@+id/peekView"
+        app:layout_constraintBottom_toTopOf="@id/clBottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <!-- main screen -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#F8CB48"
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/peekView"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rvMain"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- main screen -->
+
+
+    <!-- audio screen -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#4ECA2B"
+        android:id="@+id/clAudio"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="@id/clAudio"
+        app:layout_constraintTop_toTopOf="@id/clAudio"
+        app:cardCornerRadius="50dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/uri"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/cardImage"
+        app:layout_constraintBottom_toBottomOf="@id/cardImage"
+        android:background="@null"
+        android:src="@drawable/ic_baseline_double_arrow_24"
+        android:rotation="180"
+        android:id="@+id/btnBack"
+        app:layout_constraintEnd_toStartOf="@id/cardImage"
+        android:layout_marginEnd="20dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/cardImage"
+        app:layout_constraintBottom_toBottomOf="@id/cardImage"
+        android:background="@null"
+        android:src="@drawable/ic_baseline_double_arrow_24"
+        android:id="@+id/btnFront"
+        app:layout_constraintStart_toEndOf="@id/cardImage"
+        android:layout_marginStart="20dp"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/clAudio"
+        app:layout_constraintBottom_toBottomOf="@id/clAudio"
+        app:layout_constraintEnd_toEndOf="@id/clAudio"
+        app:layout_constraintStart_toEndOf="@id/cardImage"
+        android:id="@+id/clMiniPlayer">
+        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvMiniSubTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnMiniPlay"
+            android:text="철학을 잊은 리더에게"
+            android:id="@+id/tvMiniTitle"
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMiniTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnMiniPlay"
+            android:text="기시미 이치로"
+            android:id="@+id/tvMiniSubTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnMiniList"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_playlist_play_24"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnMiniPlay"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@null"
+            android:src="@drawable/ic_play_arrow_gray_32dp"
+            app:layout_constraintEnd_toStartOf="@id/btnMiniList"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAudioTop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/clAudio"
+        app:layout_constraintStart_toStartOf="@id/clAudio"
+        app:layout_constraintEnd_toEndOf="@id/clAudio">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTop"
+            android:layout_width="0dp"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/btnFavorite"
+                android:background="@null"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toStartOf="@id/tvFavorite"
+                android:src="@drawable/ic_baseline_favorite_border_24"
+                />
+
+            <TextView
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:id="@+id/tvFavorite"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:background="@color/black"
+            android:id="@+id/topUnderLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clTop"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="철학을 잊은 리더에게"
+            app:layout_constraintTop_toBottomOf="@id/topUnderLine"/>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvSubTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="01_철학을 잊은 리더에게-타이틀,프롤로그"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnDown"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:layout_constraintTop_toTopOf="@id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAudioBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/clAudio"
+        app:layout_constraintEnd_toEndOf="@id/clAudio"
+        app:layout_constraintBottom_toBottomOf="@id/clAudio"
+        >
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAudioController"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toTopOf="@id/clAudioBottom">
+
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wi-Fi 재생"
+                android:id="@+id/tvType"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clAudioBtnContainer"
+                android:layout_width="0dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvType"
+                android:layout_height="50dp">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btnSkipPrev"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/ic_baseline_skip_next_24"
+                    android:id="@+id/btnPrev"
+                    android:rotation="180"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btnPrev"
+                    app:layout_constraintEnd_toStartOf="@id/btnPlay"
+                    android:src="@drawable/ic_baseline_replay_10_24"
+                    android:id="@+id/btnSkipPrev"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btnSkipPrev"
+                    app:layout_constraintEnd_toStartOf="@id/btnSkipNext"
+                    android:src="@drawable/ic_baseline_play_circle_outline_24"
+                    android:id="@+id/btnPlay"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/ic_baseline_replay_10_24"
+                    android:id="@+id/btnSkipNext"
+                    app:layout_constraintStart_toEndOf="@id/btnPlay"
+                    app:layout_constraintEnd_toStartOf="@id/btnNext"
+                    android:rotationX="180"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/ic_baseline_skip_next_24"
+                    app:layout_constraintStart_toEndOf="@id/btnSkipNext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/btnNext"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clAudioBtnContainer"
+                android:id="@+id/clAudioSeekbar">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnBookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_baseline_bookmark_border_24"/>
+
+                <SeekBar
+                    android:id="@+id/sbAudio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btnBookmark"
+                    app:layout_constraintTop_toTopOf="@id/btnBookmark"
+                    app:layout_constraintBottom_toBottomOf="@id/btnBookmark"/>
+
+                <TextView
+                    android:id="@+id/tvCurrent"
+                    android:text="00:11:11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/sbAudio"
+                    app:layout_constraintTop_toBottomOf="@id/sbAudio"/>
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:text="01:22:11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@id/sbAudio"
+                    app:layout_constraintTop_toBottomOf="@id/sbAudio"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAudioBottom"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/btnSpeed"
+                android:background="@null"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnNight"
+                android:src="@drawable/ic_baseline_1x_mobiledata_24"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/btnNight"
+                android:background="@null"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnSpeed"
+                app:layout_constraintEnd_toStartOf="@id/btnList"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_baseline_nights_stay_24"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/btnList"
+                android:background="@null"
+                app:layout_constraintStart_toEndOf="@id/btnNight"
+                app:layout_constraintEnd_toStartOf="@id/btnCar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_baseline_format_list_bulleted_24"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/btnCar"
+                android:background="@null"
+                app:layout_constraintStart_toEndOf="@id/btnList"
+                app:layout_constraintEnd_toStartOf="@id/btnPlayList"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_baseline_directions_car_24"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/btnPlayList"
+                android:background="@null"
+                app:layout_constraintStart_toEndOf="@id/btnCar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_baseline_playlist_play_24"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- audio screen -->
+
+
+    <!-- bottom nav -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white"
+        android:id="@+id/clBottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnSearch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:id="@+id/btnHome"
+            android:src="@drawable/ic_home_black_24dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSearch"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnHome"
+            app:layout_constraintEnd_toStartOf="@id/btnPerson"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_search_24"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnPerson"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSearch"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_person_24"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- bottom nav -->
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/motionLayout"
+    app:layoutDescription="@xml/main_scene"
+    >
+
+    <View
+        android:id="@+id/testView"
+        android:clickable="false"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="50dp"/>
+
+
+    <!-- home -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:background="#FFD60C"
+        android:layout_height="match_parent">
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- home -->
+
+
+    <!-- audio -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/audio"
+        android:background="#7BF33A"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- mini -->
+    <TextView
+        android:text="타이틀"
+        android:id="@+id/tvMiniTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        />
+    <TextView
+        android:text="서브 타이틀"
+        android:id="@+id/tvMiniSubTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        />
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnMiniPlayOrPause"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_baseline_pause_24"
+        android:background="@null"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_playlist_play_24"
+        android:background="@null"
+        android:id="@+id/btnMiniList"/>
+    <!-- mini -->
+
+
+    <!-- audio main -->
+    <TextView
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:text="타이틀"
+        android:visibility="gone"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/audio"
+        app:layout_constraintEnd_toEndOf="@id/audio"
+        app:layout_constraintTop_toTopOf="@id/audio"/>
+
+    <TextView
+        android:textSize="16dp"
+        android:layout_marginTop="20dp"
+        android:text="서브 타이틀"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvSubTitle"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_double_arrow_24"
+        android:background="@null"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="180"
+        android:src="@drawable/ic_baseline_double_arrow_24"
+        android:background="@null"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAudioController"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clAudioContainer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/llBottomMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Wi-Fi 재생"
+                android:id="@+id/tvMode"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMode"
+                android:id="@+id/llController"
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                >
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:src="@drawable/ic_baseline_skip_next_24"
+                    android:rotation="180"
+                    android:background="@null"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:background="@null"
+                    android:src="@drawable/ic_baseline_replay_10_24"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:src="@drawable/ic_baseline_play_circle_outline_24"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:src="@drawable/ic_baseline_replay_10_24"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:src="@drawable/ic_baseline_skip_next_24"
+                    android:background="@null"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sbAudio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llController"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/sbAudio"
+                app:layout_constraintTop_toBottomOf="@id/sbAudio"
+                android:id="@+id/tvCurrent"
+                android:text="0:00:00"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTotal"
+                app:layout_constraintEnd_toEndOf="@id/sbAudio"
+                app:layout_constraintTop_toBottomOf="@id/sbAudio"
+                android:text="1:15:51"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/llBottomMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:src="@drawable/ic_baseline_pause_24"
+                android:background="@null"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:src="@drawable/ic_baseline_pause_24"
+                android:background="@null"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:src="@drawable/ic_baseline_pause_24"
+                android:background="@null"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:src="@drawable/ic_baseline_pause_24"
+                android:background="@null"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:src="@drawable/ic_baseline_pause_24"
+                android:background="@null"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"/>
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/card"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@id/testView"
+        app:layout_constraintTop_toTopOf="@id/testView"
+        app:layout_constraintBottom_toBottomOf="@id/testView"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivUri"
+            android:background="@null"
+            android:src="@drawable/uri"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- audio main -->
+
+
+
+    <!-- audio -->
+
+
+    <!-- bottom -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu"
+        />
+    <!-- bottom -->
+
+
+
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>
